@@ -1,26 +1,70 @@
-# FarooqChatViewer
-Farooq Chat Viewer opens exported WhatsApp chats on your PC and shows them in a familiar chat layout, so you can read old conversations without restoring anything to your phone.
+# Farooq Chat Viewer
 
-WhatsApp lets you export any single chat as a ZIP file containing the conversation and its attachments. Copy that ZIP to your computer or to an external hard drive, open it in Farooq Chat Viewer, and the messages appear as a normal chat thread with dates, senders and media in place. Because the export is a plain file you keep yourself, conversations stay readable years later, even when the archive is far too old to restore into WhatsApp again.
+**Farooq Chat Viewer** is a free, open-source Windows desktop application for reading chat archives exported from WhatsApp without restoring them to a phone.
 
-The app is read-only. It does not send or receive messages, does not connect to your WhatsApp account, and does not upload anything: your exported files are opened locally on your own device and stay there.
+> Privacy first: the app is read-only. It does not sign in to WhatsApp, send or receive messages, connect to a WhatsApp account, or upload exported chats. Files are opened and processed locally on the user's Windows PC.
 
-Use it to revisit archived conversations, keep a long-term personal record of chats that matter, and free up space on your phone while keeping the history accessible.
+## Flutter Desktop Edition 2.0
 
-Farooq Chat Viewer is an independent viewer for chat exports that you own. It is not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms, Inc. WhatsApp is a trademark of its respective owner.
+This repository is the native Flutter/Windows successor to the earlier single-page/PWA Store app.
 
+### Features
+- Open an exported chat ZIP directly from Windows.
+- Native two-pane desktop chat layout with a modern two-tone design.
+- Multi-line message parsing, sender detection, search and sender-side selection.
+- Inline image preview and Windows opening for other exported attachments.
+- Light, dark and system theme modes.
+- Windows-language-aware UI with the complete Windows 11 language pack + Language Interface Pack locale catalog.
+- Curated English, Urdu and Arabic app translations in this release; every other Windows locale is accepted and safely falls back to English until its app strings are translated.
+- Automatic RTL handling for Arabic, Urdu, Persian, Hebrew, Kurdish, Punjabi (Arabic), Sindhi, Dari and Uyghur.
+- Manual language selection can expose the full Windows locale catalog, while System mode follows the Windows preferred display language.
+- Local/read-only processing: no sign-in, cloud sync, analytics or upload.
 
+## How to use
+1. In WhatsApp, open the chat you want to archive.
+2. Choose **Export chat**, with or without media.
+3. Copy/save the ZIP file to your PC or an external drive.
+4. Open **Farooq Chat Viewer**.
+5. Click **Open exported chat ZIP**.
+6. Select the ZIP. The app extracts a temporary local working copy, finds `_chat.txt`, parses the conversation and links available media.
+7. Search messages or choose which sender should appear as your messages.
 
+## Build on Windows
+Requirements: Windows 10/11 x64, Flutter stable, and Visual Studio 2022 with **Desktop development with C++**.
 
+```powershell
+flutter doctor
+flutter pub get
+flutter create . --platforms=windows
+flutter run -d windows
+```
 
-https://farooqstars.com/farooq-chat-viewer-pwa/
+Release build:
 
+```powershell
+flutter clean
+flutter pub get
+flutter build windows --release
+```
 
+The normal output is under `build\\windows\\x64\\runner\\Release\\`.
 
-Open WhatsApp exported chat ZIP files without restoring them to your phone
+## Microsoft Store update
+Use the **same Partner Center product identity** as the existing Store listing when replacing the PWA package with this native desktop package. See [docs/MICROSOFT-STORE.md](docs/MICROSOFT-STORE.md).
 
-Messages shown in a familiar chat layout with dates, senders and media
+## Documentation
+- [Privacy](PRIVACY.md)
+- [Support](docs/SUPPORT.md)
+- [Help / How to use](docs/HELP.md)
+- [Microsoft Store update](docs/MICROSOFT-STORE.md)
+- [Website copy](docs/WEBSITE-COPY.md)
 
-Read exports kept on your PC or on an external hard drive
+## Trademark notice
+Farooq Chat Viewer is an independent viewer for chat exports that users own. It is not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms, Inc. WhatsApp is a trademark of its respective owner.
 
-Read-only and offline: no account sign-in and nothing is uploaded
+## License
+Copyright © 2026 Mohammad Farooq. Released under the MIT License.
+
+## Windows language support
+
+The locale catalog in `lib/windows_locales.dart` follows Microsoft Learn's current Windows 11 full language packs and Language Interface Packs. Windows uses BCP-47-style language tags and can have regional/script variants. The app accepts those locales, preserves RTL direction where required, and falls back to English for any UI string that has not yet received a human-reviewed translation.
