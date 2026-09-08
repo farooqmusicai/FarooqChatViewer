@@ -1,28 +1,13 @@
-# Privacy Policy — Farooq Chat Viewer
+# Privacy and support
 
-Farooq Chat Viewer is designed as a local, read-only archive viewer.
+Farooq Chat Viewer reads chosen local exports. It has no WhatsApp login, cloud backend, analytics, automatic uploads, remote fonts or link prefetch. Selecting a link, external file or Share action invokes another application explicitly. Clipboard and cloud-folder synchronization follow Windows/provider settings.
 
-## What the app reads
-The app reads only the chat export files that the user explicitly selects or opens, including `_chat.txt` and exported media such as photos, stickers, audio, video, PDFs and documents.
+The app does not encrypt exports. Source transcript/media files are not modified by reading. ZIP import creates a unique destination subfolder. Save creates a copy outside the selected chat folder. Disconnect removes the remembered path only; it does not remove archives. Preferences include the remembered library, Me selection, date order, theme and interface language, stored through shared_preferences in the app's Windows profile storage.
 
-## What the app does not do
-- It does not sign in to a WhatsApp account.
-- It does not read live WhatsApp data.
-- It does not send or receive WhatsApp messages.
-- It does not automatically upload chat archives.
-- It does not require a Farooq Chat Viewer cloud account.
-- It does not modify the original exported chat text or media as part of normal viewing.
+No archive data is included automatically in support requests. Email babaqatar@gmail.com with app version, Windows version, steps and a sanitized screenshot. Keep private chats and passwords out of public bug reports.
 
-## Sharing
-If the user explicitly chooses **Share / Forward**, the selected file is handed to the Windows or iOS system share interface. The user then chooses the destination application. If WhatsApp is installed/available, it may appear as one of those destinations. The external destination app is responsible for its own privacy practices.
+Exports are not restorable WhatsApp account backups. Verify the messages and media that matter and keep an independent copy before deciding whether to remove anything from your phone.
 
-## Storage
-On Windows, the app can remember the path to the last conversations folder for convenience. The chat files remain in the location chosen by the user, such as the PC, OneDrive or an external drive.
+Link cards are local by default. Choosing Load online preview fetches that page and its preview image, disclosing the requested URL and ordinary connection information to those sites. These previews are held in memory. File thumbnails and durations are read locally through Windows, off the UI thread.
 
-On iOS, imported archives may be copied into the application's local sandbox so they can be reopened. Users remain responsible for their own backups and storage choices.
-
-## Deleting mobile chats
-Farooq Chat Viewer never deletes chats from the user's phone. A user may choose to delete an original mobile chat only after independently confirming that their exported archive is safely stored and readable.
-
-## Third-party notice
-Farooq Chat Viewer is an independent viewer for chat exports that users own. It is not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms, Inc. WhatsApp is a trademark of its respective owner.
+The saved library is reopened automatically until disconnected. Disconnect clears only its remembered connection, not folders or files. Left-panel message search uses a local, in-memory text index; it does not send chat content to a search service.

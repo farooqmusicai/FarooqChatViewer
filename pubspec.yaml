@@ -1,21 +1,33 @@
 name: farooq_chat_viewer
-description: Offline-first viewer for user-owned exported WhatsApp chat archives.
+description: Offline Windows reader for WhatsApp exports.
 publish_to: none
-version: 2.0.0+200
-
+version: 2.0.3+203
 environment:
-  sdk: '>=3.4.0 <4.0.0'
-
+  sdk: '>=3.12.0 <4.0.0'
 dependencies:
   flutter:
     sdk: flutter
-  file_picker: ^8.1.7
-  archive: ^4.0.2
+  flutter_localizations:
+    sdk: flutter
+  file_picker: ^10.3.10
+  archive: ^4.0.7
   path: ^1.9.1
-  path_provider: ^2.1.5
-  shared_preferences: ^2.3.5
-  share_plus: ^10.1.4
-  url_launcher: ^6.3.1
-
+  shared_preferences: ^2.5.4
+  share_plus: ^12.0.1
+  url_launcher: ^6.3.2
+  media_kit: ^1.2.6
+  media_kit_video: ^2.0.1
+  media_kit_libs_windows_video: ^1.0.11
+  desktop_drop: ^0.7.0
+  scrollable_positioned_list: ^0.3.8
+  intl: ^0.20.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
 flutter:
   uses-material-design: true
+
+dependency_overrides:
+  share_plus:
+    path: packages/share_plus

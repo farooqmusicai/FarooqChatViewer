@@ -1,93 +1,124 @@
 # Farooq Chat Viewer
 
-**Farooq Chat Viewer** is a free, open-source Flutter desktop app for **Windows and macOS** that lets people keep large exported WhatsApp conversations as long-term archives and read them later without restoring them to a phone.
+A free, open-source Windows desktop app for reading exported WhatsApp conversations and their saved media in a familiar chat layout.
 
-> **Privacy first:** normal viewing is local and read-only. Farooq Chat Viewer does not sign in to WhatsApp, send or receive messages, or automatically upload chat archives. A user may explicitly choose **Share / Forward** on an attachment; Windows or macOS then hands that file to the operating-system sharing/open-with system, where WhatsApp Desktop or another installed app can be selected when available.
+**Current version: 2.0.3 (build 203). Status: owner testing, 8 September 2026.** The owner reports that the app is working and is allowing another 1–2 days for everyday testing. This is not a completed public-release sign-off. Windows is implemented; macOS is a future target and has no working runner in this repository.
 
-## Why this app exists
+[User guide](docs/PRODUCT-GUIDE.md) · [Testing checklist](docs/TESTING.md) · [Maintainer handoff](HANDOFF.md) · [Build instructions](docs/BUILDING.md) · [Privacy](docs/PRIVACY.md) · [Validation](docs/VALIDATION.md) · [Changes](CHANGELOG.md)
 
-Some WhatsApp chats grow to hundreds of MB or several GB because they contain years of photos, voice notes, videos, PDFs, stickers and documents. Farooq Chat Viewer gives the user a simple archive workflow:
+## What the app does
 
-1. Open a single chat in WhatsApp.
-2. Choose **Export chat** and, when required, **With all media**.
-3. Save the generated ZIP to the computer, OneDrive/iCloud Drive, an external drive, or another local storage location.
-4. Extract each ZIP into its own chat folder and place those folders inside one master **conversations** folder.
-5. Open the master conversations folder in Farooq Chat Viewer.
-6. The app scans every chat folder, finds `_chat.txt`, links its media, and shows all chats in one familiar desktop-style list.
-7. After confirming the archive is safely stored, the user may decide to delete that single chat from the phone to recover mobile storage.
+Keep exported conversations on your computer, open a parent folder containing multiple chats, and browse messages, photos, stickers, voice notes, videos and documents without restoring a phone backup.
 
-The screenshots used while designing this version include a real exported archive of about **3.5 GB**, so the product is intentionally designed around large local archives rather than tiny demo files.
+The app reads the exports you select. It does not connect to a WhatsApp account, recover messages missing from an export, synchronize live conversations or send messages itself. Sharing is an explicit handoff to Windows and another installed application. Farooq Chat Viewer is an independent project, not affiliated with or endorsed by WhatsApp or Meta.
 
-## Flutter 2.0 desktop goals
+## Features available now
 
-- Beautiful two-tone **Windows + macOS** desktop design with light, dark and system themes.
-- Open a master **conversations** folder, one exported chat folder, or a supported exported ZIP workflow.
-- Conversation list with contact/chat name, latest message preview, **last chat date/time, and stored folder/archive size**.
-- Search loaded chats.
-- Sender-side selection so the user can identify which participant is "Me".
-- Date separators and familiar incoming/outgoing message bubbles.
-- Text, emoji, links and deleted-message markers.
-- Inline photos and stickers.
-- Audio/voice-note playback.
-- Video, PDF and document cards with open/save actions.
-- Explicit Share / Forward action through the operating system; WhatsApp Desktop can be used when installed/connected and supported by the OS sharing/open mechanism.
-- Read-only archive mode: the app never edits `_chat.txt` or exported media.
-- Large-archive-friendly scanning: folder size is calculated without loading every media file into memory.
-- Remember/reopen the last conversations folder.
-- Broad locale support, automatic LTR/RTL, system-language detection, and English fallback for untranslated UI strings.
+| Area | Current behavior |
+| --- | --- |
+| Conversation library | Open a parent folder or individual export folder; import ZIP exports into a new folder. |
+| Remembered folder | Reopen the selected library at startup until the user disconnects it or selects another folder. Disconnect never deletes archives. |
+| Chat list | Folder-based display names with the `WhatsApp Chat -` prefix removed; initials from the first two name words; latest user-message date, media preview and stored size. |
+| Reading | Open at the latest user message, scroll through dated bubbles, choose which sender represents Me. |
+| Search | Left panel searches conversation names and indexed message content. Opening a content match exposes matching messages, including older messages. Search inside an open chat shows results and navigation. |
+| WhatsApp notices | Recognized encryption, security-code and disappearing-message notices appear as centered system cards. They are retained but excluded from user-message counts, previews, latest dates and user-message search. |
+| Photos and stickers | Inline photos, captions and transparent sticker presentation; media-specific chat-list previews. |
+| Voice and audio | Play/pause/resume, progress, duration and playback speed. The waveform decoration is stylized, not measured audio amplitude. |
+| Video | Playable video cards with duration and a thumbnail when local Windows codecs can provide one. |
+| Links | Clickable links and local link cards; online metadata/image previews load only when requested. |
+| Sharing and copies | Per-message share actions for text, links and saved attachments, plus applicable copy/save actions. Available share destinations depend on Windows and installed apps. |
+| Appearance | Light, dark and system themes; RTL text and partial Urdu/Arabic interface translations with English fallback. |
+| Archive integrity | Reading does not modify source transcripts/media. ZIP extraction creates a separate destination and rejects unsafe paths. |
 
-## Archive size beside the date
+## Getting started
 
-Each chat row has a place for **archive size** beside the latest chat date/time. This lets a user immediately see which chats are consuming the most disk space, for example:
+The Windows installer and portable package have been prepared for the owner's local test. This documentation update does not publish a downloadable binary release. Developers can build the source using [BUILDING.md](docs/BUILDING.md).
 
-`25 Jun 2026 · 3.50 GB`
+The current package targets **Windows 10 version 2004/build 19041 or later, x64**, including Windows 11. Actual development validation used Windows 11. Other architectures and clean-machine compatibility are not yet certified.
 
-The size represents the saved chat folder (or imported archive where applicable), including `_chat.txt` and exported media.
+1. Export a conversation from WhatsApp, including media if needed. Only messages and files included by WhatsApp can be displayed.
+2. Extract each export into its own folder, keeping its transcript and media together. Alternatively, use the app's ZIP import.
+3. Place chat folders in a parent folder such as `Conversations`.
+4. Open that parent folder in Farooq Chat Viewer. It can have any name.
+5. Select a chat. The reader starts at its latest user message. Use search to find older content.
+6. Close and reopen the app to confirm that your library is remembered. Use Disconnect folder when you want to remove that saved connection.
 
-## Repository structure
+Example using fictional names:
 
-- `lib/` – shared Flutter application source
-- `windows/` – generated/configured Windows desktop runner (when platform scaffolding is committed)
-- `macos/` – generated/configured macOS desktop runner (when platform scaffolding is committed)
-- `docs/PRODUCT-GUIDE.md` – complete workflow and product behavior
-- `docs/PRIVACY.md` – privacy model
-- `docs/SUPPORT.md` – support/help information
-- `docs/MICROSOFT-STORE.md` – guidance for updating the existing Microsoft Store product
+```text
+Conversations/
+  WhatsApp Chat - Alex Morgan/
+    _chat.txt
+    photo.jpg
+    voice.opus
+  Family Group/
+    chat.txt
+    video.mp4
+```
 
-## Build
+The first chat is displayed as **Alex Morgan**. Preserve exported filenames so attachment references continue to resolve. Cloud folders and removable drives must be available locally; online-only media may require the storage provider to download it.
 
-Use current Flutter stable.
+## Search, dates and archive sizes
 
-### Windows
+The left search looks through chat names and a local in-memory index of user-message content. It normalizes case, repeated whitespace and invisible direction marks. A match can come from an older message even when the latest-message preview contains different text. Inside a chat, use the visible result list to navigate to the matching message.
+
+Supported export parsing includes common Android and iPhone numeric timestamp formats, multiline messages, AM/PM times and RTL content. Ambiguous numeric dates can require the date-order setting. Export formats vary by language and WhatsApp version; warnings and missing attachments should be checked against the original export.
+
+The date beside a chat is its latest parsed user-message date, not the date the folder was copied. The size describes stored archive files, not a voice-note duration. Audio duration is shown when metadata is available. Media bytes are not all loaded into memory during scanning, but the full transcript search index does consume memory.
+
+## Privacy and data handling
+
+Normal reading and searching are local. There is no app account, archive-upload backend, analytics or automatic link preview fetching. The selected path and interface preferences are saved in the Windows user's app preferences. The in-memory search index is not sent to a search service.
+
+Choosing an online preview contacts that site and possibly its image host. Opening a URL, sharing a file, using the clipboard or storing exports in a synced folder involves Windows, the destination app or the storage provider. Exported files are not encrypted by this viewer. See [PRIVACY.md](docs/PRIVACY.md) for the complete behavior.
+
+Keep an independent archive copy and check important messages/media before removing anything from a phone. A text export is not a restorable WhatsApp account backup.
+
+## Known limitations and release status
+
+- Export omissions cannot be reconstructed. Unknown localized system notices may still need parser rules.
+- Windows share targets, thumbnail generation and codec support vary by machine. Receiving-app delivery still needs live acceptance testing.
+- Online previews can fail when sites block requests or omit metadata.
+- Very large transcripts need a fresh memory/performance measurement with the current full-text index. Historical benchmark timings are not current performance guarantees.
+- ZIP import has extraction limits and path checks, but no free-disk-space preflight.
+- Complete translations, comprehensive accessibility/scaling checks and macOS support remain unfinished.
+- Clean-machine install/upgrade/uninstall, signing, public binary licensing preparation and Microsoft Store submission are separate release tasks.
+
+The 2.0.3 Windows release compiled and **22 automated tests passed**, with no static-analysis issues. These checks do not replace the owner's live testing. [VALIDATION.md](docs/VALIDATION.md) distinguishes automated, native, visual and still-pending checks.
+
+## Development and repository map
+
+The validated toolchain was Flutter 3.44.2, Dart 3.12.2 and Visual Studio Community 2026 with Desktop development with C++. Keep `pubspec.lock` and the local `share_plus` override when reproducing the build.
 
 ```powershell
-flutter doctor
+flutter doctor -v
 flutter pub get
+flutter analyze
+flutter test
 flutter run -d windows
-flutter build windows --release
 ```
 
-### macOS
+See [BUILDING.md](docs/BUILDING.md) for release packaging, native checks and runtime files.
 
-A Mac with Xcode and Flutter is required:
+| Path | Purpose |
+| --- | --- |
+| `lib/main.dart` | Library state, preferences, search/navigation, reader and user actions. |
+| `lib/archive.dart` | Export parsing, library scanning, notices, search normalization and previews. |
+| `lib/media_widgets.dart` | Photo/sticker/audio/video/link presentation and metadata handling. |
+| `lib/zip_import.dart` | Bounded ZIP extraction and path validation. |
+| `windows/runner/` | Desktop host, asynchronous local metadata and image clipboard support. |
+| `packages/share_plus/` | Vendored sharing plugin with required Windows freeze/lifetime fixes. |
+| `test/` | Parser, import, preferences, search and media regression tests with fixtures. |
+| `tool/` | Additional media, native-share and benchmark diagnostics. |
+| `installer/windows.iss` | Per-user Windows Setup configuration. |
+| `docs/` | User, privacy, testing, build and licensing documentation. |
 
-```bash
-flutter doctor
-flutter pub get
-flutter run -d macos
-flutter build macos --release
-```
+## Support and contributions
 
-For Mac App Store distribution, configure the macOS bundle identifier, signing, entitlements and App Store packaging on macOS/Xcode. **This project is targeting macOS desktop, not iPhone/iPad iOS.**
+Report reproducible problems in [GitHub Issues](https://github.com/farooqmusicai/FarooqChatViewer/issues), or email **babaqatar@gmail.com**. Include app version, Windows version, steps, expected/actual behavior and a sanitized example. Never attach private archives or unredacted chat screenshots to a public issue. See [SUPPORT.md](docs/SUPPORT.md).
 
-## Microsoft Store update
-
-Keep the **existing Partner Center product identity** when replacing the old PWA package with the Flutter Windows package so existing users receive it as an update rather than a separate product.
-
-## Trademark notice
-
-Farooq Chat Viewer is an independent viewer for chat exports that users own. It is not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms, Inc. WhatsApp is a trademark of its respective owner.
+During owner testing, prioritize reproducible defects in search, persistence, media and sharing. Preserve source-file integrity and add focused regression coverage for behavioral changes. Use fictional fixtures in contributions.
 
 ## License
 
-Copyright © 2026 Mohammad Farooq. Released under the MIT License.
+Application code is covered by [MIT](LICENSE); dependencies retain their own licenses. The Windows media stack includes separately licensed libmpv components. Read [THIRD-PARTY-NOTICES.md](docs/THIRD-PARTY-NOTICES.md) and complete corresponding-source/runtime redistribution checks before publishing binaries. The repository being public does not by itself complete binary-distribution obligations.

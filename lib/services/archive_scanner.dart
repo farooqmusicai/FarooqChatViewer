@@ -25,7 +25,10 @@ class ArchiveScanner {
     int totalBytes = 0;
     DateTime latest = DateTime.fromMillisecondsSinceEpoch(0);
 
-    await for (final entity in folder.list(recursive: true, followLinks: false)) {
+    await for (final entity in folder.list(
+      recursive: true,
+      followLinks: false,
+    )) {
       try {
         if (entity is File) {
           final stat = await entity.stat();
@@ -42,14 +45,17 @@ class ArchiveScanner {
 
     if (chatText == null) return null;
 
-    final preview = await _readLastUsefulLine(chatText!);
+    final preview = await _readLastUsefulLine(chatText);
     final rawName = p.basename(folder.path);
-    final name = rawName.replaceFirst(RegExp(r'^WhatsApp Chat\s*-\s*', caseSensitive: false), '');
+    final name = rawName.replaceFirst(
+      RegExp(r'^WhatsApp Chat\s*-\s*', caseSensitive: false),
+      '',
+    );
 
     return ChatArchive(
       name: name.trim().isEmpty ? rawName : name.trim(),
       directory: folder,
-      chatTextFile: chatText!,
+      chatTextFile: chatText,
       sizeBytes: totalBytes,
       lastModified: latest,
       lastMessagePreview: preview,
@@ -63,10 +69,14 @@ class ArchiveScanner {
         final value = lines[i].trim();
         if (value.isEmpty) continue;
         final normalized = value.replaceFirst(
-          RegExp(r'^\[?\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}[^\]]*\]?\s*[-–]?\s*'),
+          RegExp(
+            r'^\[?\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}[^\]]*\]?\s*[-–]?\s*',
+          ),
           '',
         );
-        return normalized.length > 90 ? '${normalized.substring(0, 90)}…' : normalized;
+        return normalized.length > 90
+            ? '${normalized.substring(0, 90)}…'
+            : normalized;
       }
     } catch (_) {}
     return '';

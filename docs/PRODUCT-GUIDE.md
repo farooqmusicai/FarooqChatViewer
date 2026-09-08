@@ -1,119 +1,39 @@
-# Farooq Chat Viewer — Product Guide
+# User guide
 
-## Purpose
+Applies to Windows test version 2.0.3. See the [README](../README.md) for platform and release status.
 
-Farooq Chat Viewer is for people who have very large WhatsApp conversations and want to keep them as readable archives on Windows or iOS without keeping the entire chat on the phone forever.
+## Connect your conversations
 
-The app is not a WhatsApp replacement, messenger, synchronizer or backup service. It is a **local archive viewer** for exported chats owned by the user.
+Export each chat from WhatsApp and keep its text transcript and media together. Place separate chat folders under one parent folder, then open that parent in the viewer. You can also select one chat folder. For ZIP import, choose the archive and destination; the app creates a unique child folder instead of overwriting an existing archive.
 
-## Real-world workflow
+The folder connection is remembered when the app closes. Selecting a different folder replaces it. Disconnect folder removes the saved connection only. If a drive is temporarily missing, reconnect the drive and retry; the saved path is retained. Files in cloud storage need to be available locally.
 
-### 1. Export one chat from WhatsApp
-Open WhatsApp, choose the chat to archive, then go to the chat export option. When the media matters, choose **With all media**. WhatsApp creates an export containing `_chat.txt` plus available media files such as images, stickers, audio, video, PDFs and other documents.
+## Read a chat
 
-### 2. Save the ZIP safely
-The exported ZIP can be saved to Windows, OneDrive, an external hard drive, or iOS Files. Large archives are expected; the design reference includes a chat export around 3.5 GB.
+The displayed name comes from its folder, with the common WhatsApp export prefix removed. Initials use the first letters of the first two name words; a single-word name has one initial. Select a chat to open at the newest user message. Choose Me to align your messages separately from other senders. Scroll or search for earlier history.
 
-### 3. Windows archive layout
-For the best Windows experience, extract every exported chat into its own folder and place all chat folders inside one parent folder named, for example, `conversations`.
+Photos and stickers display inline when their saved files are available. Voice notes have play/pause, progress and speed controls. Videos use local playback and, when available, Windows thumbnail metadata. Missing or unsupported media can require checking the original export or opening a supported file with another installed application.
 
-Example:
+System cards represent recognized WhatsApp notices such as encryption, changed security codes and disappearing-message settings. They remain in the transcript but do not count as user messages or replace the chat-list preview. An export containing only notices has no user-message preview to invent.
 
-```text
-conversations/
-  WhatsApp Chat - AbdulRahman Mughal/
-    _chat.txt
-    00000002-STICKER....webp
-    00000006-AUDIO....opus
-    00000024-PHOTO....jpg
-    ...
-  WhatsApp Chat - Tahira Jabeen/
-    _chat.txt
-    ...
-  WhatsApp Chat - M Sarfraz/
-    _chat.txt
-    ...
-```
+## Find older messages
 
-Farooq Chat Viewer opens the parent folder, scans the chat folders and builds one conversation list.
+Type a name or message phrase in the left search. Content search can match messages from any indexed date. Select a matching conversation and use its result list to open a matching message. The open-chat search supports sender/body matching, result navigation and an explicit no-results state. Clear the query to return to normal browsing.
 
-### 4. iOS archive workflow
-On iPhone/iPad, use the Files picker to select an exported ZIP. The app imports it into its own local working area, reads `_chat.txt`, links the contained media and shows the conversation in the same viewer experience.
+If dates look reversed, review the date-order setting. A numeric date such as 06/07 can mean June 7 or July 6 depending on the exporter. Compare several unambiguous dates before choosing an override.
 
-### 5. Verify before deleting from the phone
-The user should open the archived chat in Farooq Chat Viewer and verify that the conversation and important media are readable. Only after verifying the archive should the user decide whether to delete the original chat from the phone to recover storage.
+## Share, copy and save
 
-Farooq Chat Viewer never deletes chats from the phone and never performs that decision automatically.
+Use the share arrow for a message or saved attachment. Windows lists compatible destinations installed/configured on your machine; their order and availability are controlled by Windows. Select a destination and finish within that app, or cancel. The viewer does not independently send a WhatsApp message.
 
-## Conversation list
+Copy/save actions apply to the selected content. Save creates a separate copy outside the connected chat folder. Opening links or loading an online preview is an explicit external action. Link previews do not load automatically while reading.
 
-Each row should show:
+## Understand the chat list
 
-- chat/contact name;
-- latest message preview;
-- last chat date/time;
-- **stored archive size**;
-- avatar/initials;
-- media indicator where useful.
+The latest date comes from parsed user messages. System notices are excluded. Media previews use labels/icons such as Sticker or voice/audio information instead of exposing attachment markers where recognized. Audio metadata can take time or be unavailable. The stored size alongside the date refers to archive files, not audio duration.
 
-Example:
+## Protect and check your archive
 
-```text
-M Sarfraz
-🎤 Audio
-4:24 PM · 3.50 GB
-```
+The viewer cannot display messages or media WhatsApp omitted from its export. It does not decrypt account backups or restore exports into WhatsApp. Keep an independent copy, verify important dates and media, and review any parsing warnings. Disconnecting the library never deletes it.
 
-The archive size is the total size of the saved chat folder, including `_chat.txt` and all exported media. For a ZIP import, the app can show the ZIP size and, after import, the extracted archive size.
-
-## Chat viewer behavior
-
-The desktop layout uses a two-pane design: chats on the left and the selected conversation on the right. The selected chat header shows its name, message count/date range and sender-side selector.
-
-The viewer supports:
-
-- incoming and outgoing message bubbles;
-- date separators;
-- text and emoji;
-- clickable links;
-- deleted-message markers;
-- photos and stickers;
-- audio/voice-note playback;
-- videos;
-- PDFs and documents;
-- save/download actions;
-- search;
-- jump/scroll controls.
-
-## Share / Forward
-
-Viewing is offline. When the user explicitly chooses **Share / Forward**, Farooq Chat Viewer passes the selected attachment to the operating-system share sheet.
-
-If WhatsApp Desktop is installed/connected on Windows, or WhatsApp is available on iOS, the user can choose it as the target. Other compatible apps can also appear. Farooq Chat Viewer itself does not send the message and does not connect to the user's WhatsApp account.
-
-## Privacy model
-
-- No WhatsApp sign-in.
-- No automatic upload.
-- No cloud database required.
-- No chat analytics required.
-- No modification of `_chat.txt`.
-- No modification of exported media.
-- Files remain under user control.
-- External sharing occurs only after an explicit user action.
-
-## Large archive design
-
-The app should not read every media file into memory just to calculate folder size. It walks file metadata and sums file lengths. Parsing `_chat.txt` is separate from media rendering, and media should be loaded lazily when it becomes visible or is opened.
-
-This is important for archives measured in gigabytes.
-
-## Languages
-
-The UI follows the operating-system language when supported and provides a manual language selector. LTR/RTL layout is automatic. Chat content is displayed as stored, including mixed Urdu, Arabic, English and other Unicode text.
-
-English is the safe fallback when a UI translation is not yet available.
-
-## Independence notice
-
-Farooq Chat Viewer is an independent viewer for chat exports that users own. It is not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms, Inc. WhatsApp is a trademark of its respective owner.
+For troubleshooting, see [Support](SUPPORT.md). For the current owner review, use the [1–2 day checklist](TESTING.md).

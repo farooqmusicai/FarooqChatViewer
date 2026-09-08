@@ -20,13 +20,13 @@ class ChatArchive {
   String get displaySize => formatBytes(sizeBytes);
 
   ChatArchive copyWith({String? lastMessagePreview}) => ChatArchive(
-        name: name,
-        directory: directory,
-        chatTextFile: chatTextFile,
-        sizeBytes: sizeBytes,
-        lastModified: lastModified,
-        lastMessagePreview: lastMessagePreview ?? this.lastMessagePreview,
-      );
+    name: name,
+    directory: directory,
+    chatTextFile: chatTextFile,
+    sizeBytes: sizeBytes,
+    lastModified: lastModified,
+    lastMessagePreview: lastMessagePreview ?? this.lastMessagePreview,
+  );
 
   static String formatBytes(int bytes) {
     const units = ['B', 'KB', 'MB', 'GB', 'TB'];
@@ -36,7 +36,13 @@ class ChatArchive {
       value /= 1024;
       unit++;
     }
-    final digits = unit == 0 ? 0 : value >= 100 ? 0 : value >= 10 ? 1 : 2;
+    final digits = unit == 0
+        ? 0
+        : value >= 100
+        ? 0
+        : value >= 10
+        ? 1
+        : 2;
     return '${value.toStringAsFixed(digits)} ${units[unit]}';
   }
 }

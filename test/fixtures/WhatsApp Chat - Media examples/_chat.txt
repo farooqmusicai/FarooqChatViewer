@@ -1,0 +1,7 @@
+[08/09/2026, 09:00] Alex: <attached: photo.png>
+A saved photo
+[08/09/2026, 09:01] Alex: <attached: video.mp4>
+[08/09/2026, 09:02] Alex: <attached: STICKER.png>
+[08/09/2026, 09:03] Alex: https://example.com
+[08/09/2026, 09:04] Alex: <attached: voice.opus>
+[08/09/2026, 09:05] Alex: Share test message
