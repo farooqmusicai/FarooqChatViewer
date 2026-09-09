@@ -15,3 +15,11 @@ Report a reproducible defect through [GitHub Issues](https://github.com/farooqmu
 | Online preview fails | The site may block metadata requests; the original clickable link remains available. |
 
 Current status is owner testing, not a guarantee that every export locale, codec or Windows configuration is supported. See [known limits and evidence](VALIDATION.md).
+
+## Dedicated website
+
+Prepared page: https://www.mymandoob.com/chatviewer/support.html
+
+Local website source: [`../chatviewer/support.html`](../chatviewer/support.html). Website upload and live verification are pending as of 9 September 2026.
+
+Support: babaqatar@gmail.com · Developer: https://www.farooqmusic.com/

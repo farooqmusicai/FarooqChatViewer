@@ -1,0 +1,31 @@
+{
+  "productName": "Farooq Chat Viewer",
+  "shortDescription": "Read exported WhatsApp chats and saved media on your Windows PC.",
+  "description": "Farooq Chat Viewer lets you read exported WhatsApp conversations and their saved media on your Windows PC.\n\nOpen a folder of chat exports or import a ZIP, browse dated messages, and search conversation names and message text. View saved photos and stickers, play voice notes and supported videos, and open documents with compatible installed applications.\n\nYour selected library is remembered when you reopen the app. Choose your name under Me, adjust ambiguous numeric dates, and select a light, dark or system theme. English is the primary interface language; Urdu and Arabic translations are partial with English fallback.\n\nNormal reading and search happen locally. There is no WhatsApp login, app account, automatic archive upload or app analytics service. Optional online previews contact the linked website only when selected. Opening links and sharing involve your browser, Windows or another application.\n\nThe viewer displays only the content included in your export. It does not synchronize live conversations, recover omitted or deleted messages, decrypt account backups, or restore exports to WhatsApp. Keep an independent copy of important files. Media playback and available share destinations depend on your Windows installation and installed applications.\n\nIndependent software by Mohammad Farooq. Not affiliated with or endorsed by WhatsApp or Meta.\n\nHelp: https://www.mymandoob.com/chatviewer/how-to-use.html\nSupport: babaqatar@gmail.com",
+  "whatsNew": "Version 2.0.3 remembers your selected chat folder and adds Disconnect folder. Search the left panel for older message content as well as conversation names. Recognized WhatsApp security and system notices remain visible while being excluded from user-message counts, latest-message previews and user-message search.",
+  "features": [
+    "Read local exported WhatsApp conversations",
+    "Open chat folders or import ZIP exports",
+    "Search conversation names and older message text",
+    "View saved photos and stickers; play supported audio and video",
+    "Remember your library; disconnect without deleting archives",
+    "Light, dark and system themes; Unicode and RTL text support"
+  ],
+  "keywords": [
+    "chat viewer",
+    "chat archive",
+    "WhatsApp export",
+    "offline reader",
+    "conversation history"
+  ],
+  "website": "https://www.mymandoob.com/chatviewer/",
+  "supportUrl": "https://www.mymandoob.com/chatviewer/support.html",
+  "privacyUrl": "https://www.mymandoob.com/chatviewer/privacy.html",
+  "termsUrl": "https://www.mymandoob.com/chatviewer/terms.html",
+  "guideUrl": "https://www.mymandoob.com/chatviewer/how-to-use.html",
+  "developerUrl": "https://www.farooqmusic.com/",
+  "supportEmail": "babaqatar@gmail.com",
+  "developedBy": "Mohammad Farooq",
+  "copyright": "Copyright © 2026 Mohammad Farooq. WhatsApp is a trademark of its respective owner. Independent software; not affiliated with WhatsApp or Meta.",
+  "certificationNotes": "This is a Flutter Win32 desktop reader for user-selected exported chat files. No account, password or WhatsApp sign-in is required. It does not send live messages or connect to a WhatsApp account.\n\nTesting: create a local folder, extract the supplied fictional reviewer-sample.zip into it, open that folder in the app and select Project notes. Search for picnic, choose Me as your sender, and test the sample image/audio with the available controls. Close/reopen to test folder restoration. Disconnect folder clears the remembered connection only. Copy/save can be tested with the fictional files. Sharing requires a compatible destination application and is completed by the tester in that application.\n\nrunFullTrust is required for the existing Win32 Flutter process, user-selected filesystem access, local native media playback and Windows sharing integration. The app runs in the user's session and does not install a service or request administrator elevation. internetClient is used for optional online link previews. No broadFileSystemAccess capability is declared.\n\nThe attached privacy URL describes local processing and optional external actions. The app includes local Help & privacy information. Only publish after the owner has verified the packaged app and the live policy pages."
+}

@@ -11,3 +11,11 @@ Exports are not restorable WhatsApp account backups. Verify the messages and med
 Link cards are local by default. Choosing Load online preview fetches that page and its preview image, disclosing the requested URL and ordinary connection information to those sites. These previews are held in memory. File thumbnails and durations are read locally through Windows, off the UI thread.
 
 The saved library is reopened automatically until disconnected. Disconnect clears only its remembered connection, not folders or files. Left-panel message search uses a local, in-memory text index; it does not send chat content to a search service.
+
+## Dedicated website
+
+Prepared page: https://www.mymandoob.com/chatviewer/privacy.html
+
+Local website source: [`../chatviewer/privacy.html`](../chatviewer/privacy.html). Website upload and live verification are pending as of 9 September 2026.
+
+Support: babaqatar@gmail.com · Developer: https://www.farooqmusic.com/

@@ -6,6 +6,25 @@ A free, open-source Windows desktop app for reading exported WhatsApp conversati
 
 [User guide](docs/PRODUCT-GUIDE.md) · [Testing checklist](docs/TESTING.md) · [Maintainer handoff](HANDOFF.md) · [Build instructions](docs/BUILDING.md) · [Privacy](docs/PRIVACY.md) · [Validation](docs/VALIDATION.md) · [Changes](CHANGELOG.md)
 
+## Website, support and Store preparation
+
+The dedicated website source is in [`chatviewer/`](chatviewer/index.html). Upload that folder to `public_html/chatviewer/` on MyMandoob. The following are the intended public URLs; website upload and live verification remain pending as of 9 September 2026.
+
+| Page | URL |
+| --- | --- |
+| App home | https://www.mymandoob.com/chatviewer/ |
+| How to use | https://www.mymandoob.com/chatviewer/how-to-use.html |
+| Support | https://www.mymandoob.com/chatviewer/support.html |
+| Privacy policy | https://www.mymandoob.com/chatviewer/privacy.html |
+| Terms and conditions | https://www.mymandoob.com/chatviewer/terms.html |
+| Developer | https://www.farooqmusic.com/ |
+
+**Support email:** babaqatar@gmail.com. Do not send private archives or unredacted screenshots. Every website page links to the other pages and the developer website. The HTML pages are also printable from a browser.
+
+See the [complete Publisher guide](docs/MICROSOFT-STORE-PUBLISHER-GUIDE.html) and [copy-ready listing fields](docs/store-listing.json) for the Microsoft Partner Center update. The website uses the existing app icon and local assets without external scripts or fonts. The home-page conversation is explicitly labeled as an illustration, not an app screenshot.
+
+The unchanged 2.0.3+203 portable payload has been verified for MSIX preparation. **The final Store MSIX is pending the exact product identity and existing Store package version from Partner Center.** No MSIX submission, packaged-installation check, certification or public binary release is claimed. Actual app screenshots and the existing third-party distribution review also remain release checks. This documentation update does not change the app binary or the owner's existing installer.
+
 ## What the app does
 
 Keep exported conversations on your computer, open a parent folder containing multiple chats, and browse messages, photos, stickers, voice notes, videos and documents without restoring a phone backup.

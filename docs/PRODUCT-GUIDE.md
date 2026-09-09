@@ -37,3 +37,11 @@ The latest date comes from parsed user messages. System notices are excluded. Me
 The viewer cannot display messages or media WhatsApp omitted from its export. It does not decrypt account backups or restore exports into WhatsApp. Keep an independent copy, verify important dates and media, and review any parsing warnings. Disconnecting the library never deletes it.
 
 For troubleshooting, see [Support](SUPPORT.md). For the current owner review, use the [1–2 day checklist](TESTING.md).
+
+## Dedicated website
+
+Prepared page: https://www.mymandoob.com/chatviewer/how-to-use.html
+
+Local website source: [`../chatviewer/how-to-use.html`](../chatviewer/how-to-use.html). Website upload and live verification are pending as of 9 September 2026.
+
+Support: babaqatar@gmail.com · Developer: https://www.farooqmusic.com/
