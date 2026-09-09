@@ -1,0 +1,20 @@
+{
+  "identity": {
+    "name": "MohammadFarooq.FarooqChatViewer",
+    "publisher": "CN=88632D82-E648-416A-A69B-DD8EADB81121",
+    "publisherDisplayName": "Mohammad Farooq",
+    "version": "2.0.3.0",
+    "currentStoreVersion": "1.0.1.0",
+    "storeId": "9NVWJ7M80940",
+    "packageFamilyName": "MohammadFarooq.FarooqChatViewer_k4xyx05gnhd8w"
+  },
+  "appVersion": "2.0.3+203",
+  "package": "FarooqChatViewer-Microsoft-Store-2.0.3.0-x64.msix",
+  "sha256": "83D7FCA49A057E3B9E03C4AD9595CEEADADB827CEAEE49058C7425267E89AA67",
+  "baselineFilesUnchanged": 43,
+  "blockMapBlocksVerified": 1306,
+  "makeappxValidation": "passed",
+  "storeCertification": "not performed",
+  "installedPackageTest": "not performed",
+  "signature": "unsigned Store upload; not a direct-install package"
+}

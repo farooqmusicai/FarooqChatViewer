@@ -27,5 +27,18 @@
   "supportEmail": "babaqatar@gmail.com",
   "developedBy": "Mohammad Farooq",
   "copyright": "Copyright © 2026 Mohammad Farooq. WhatsApp is a trademark of its respective owner. Independent software; not affiliated with WhatsApp or Meta.",
-  "certificationNotes": "This is a Flutter Win32 desktop reader for user-selected exported chat files. No account, password or WhatsApp sign-in is required. It does not send live messages or connect to a WhatsApp account.\n\nTesting: create a local folder, extract the supplied fictional reviewer-sample.zip into it, open that folder in the app and select Project notes. Search for picnic, choose Me as your sender, and test the sample image/audio with the available controls. Close/reopen to test folder restoration. Disconnect folder clears the remembered connection only. Copy/save can be tested with the fictional files. Sharing requires a compatible destination application and is completed by the tester in that application.\n\nrunFullTrust is required for the existing Win32 Flutter process, user-selected filesystem access, local native media playback and Windows sharing integration. The app runs in the user's session and does not install a service or request administrator elevation. internetClient is used for optional online link previews. No broadFileSystemAccess capability is declared.\n\nThe attached privacy URL describes local processing and optional external actions. The app includes local Help & privacy information. Only publish after the owner has verified the packaged app and the live policy pages."
+  "certificationNotes": "This is a Flutter Win32 desktop reader for user-selected exported chat files. No account, password or WhatsApp sign-in is required. It does not send live messages or connect to a WhatsApp account.\n\nTesting: create a local folder, extract the supplied fictional reviewer-sample.zip into it, open that folder in the app and select Project notes. Search for picnic, choose Me as your sender, and test the sample image/audio with the available controls. Close/reopen to test folder restoration. Disconnect folder clears the remembered connection only. Copy/save can be tested with the fictional files. Sharing requires a compatible destination application and is completed by the tester in that application.\n\nrunFullTrust is required for the existing Win32 Flutter process, user-selected filesystem access, local native media playback and Windows sharing integration. The app runs in the user's session and does not install a service or request administrator elevation. internetClient is used for optional online link previews. No broadFileSystemAccess capability is declared.\n\nThe attached privacy URL describes local processing and optional external actions. The app includes local Help & privacy information. Only publish after the owner has verified the packaged app and the live policy pages.",
+  "storeUrl": "https://apps.microsoft.com/detail/9NVWJ7M80940",
+  "packageIdentity": {
+    "name": "MohammadFarooq.FarooqChatViewer",
+    "publisher": "CN=88632D82-E648-416A-A69B-DD8EADB81121",
+    "publisherDisplayName": "Mohammad Farooq",
+    "version": "2.0.3.0",
+    "currentStoreVersion": "1.0.1.0",
+    "storeId": "9NVWJ7M80940",
+    "packageFamilyName": "MohammadFarooq.FarooqChatViewer_k4xyx05gnhd8w"
+  },
+  "packageFile": "FarooqChatViewer-Microsoft-Store-2.0.3.0-x64.msix",
+  "packageSha256": "83D7FCA49A057E3B9E03C4AD9595CEEADADB827CEAEE49058C7425267E89AA67",
+  "packageValidation": "Windows SDK package creation and independent payload/block hash validation passed; PWA upgrade testing and Store certification pending."
 }

@@ -23,7 +23,11 @@ The dedicated website source is in [`chatviewer/`](chatviewer/index.html). Uploa
 
 See the [complete Publisher guide](docs/MICROSOFT-STORE-PUBLISHER-GUIDE.html) and [copy-ready listing fields](docs/store-listing.json) for the Microsoft Partner Center update. The website uses the existing app icon and local assets without external scripts or fonts. The home-page conversation is explicitly labeled as an illustration, not an app screenshot.
 
-The unchanged 2.0.3+203 portable payload has been verified for MSIX preparation. **The final Store MSIX is pending the exact product identity and existing Store package version from Partner Center.** No MSIX submission, packaged-installation check, certification or public binary release is claimed. Actual app screenshots and the existing third-party distribution review also remain release checks. This documentation update does not change the app binary or the owner's existing installer.
+The **2.0.3.0 x64 Store MSIX is built** from the unchanged 2.0.3+203 portable payload. Its identity is `MohammadFarooq.FarooqChatViewer`, publisher `CN=88632D82-E648-416A-A69B-DD8EADB81121`, and publisher display name `Mohammad Farooq`, using the owner's supplied Partner Center values. Store product: [9NVWJ7M80940](https://apps.microsoft.com/detail/9NVWJ7M80940). The old neutral PWA package was reported as 1.0.1.0; the new package has a higher version and targets x64 desktop.
+
+Windows SDK packaging/extraction and independent checks passed: 43 baseline files unchanged and 1,306 block hashes verified. See [package validation](docs/MSIX-VALIDATION-2.0.3.0.json) and [manifest](installer/msix/AppxManifest.xml). The upload artifact is `FarooqChatViewer-Microsoft-Store-2.0.3.0-x64.msix`, SHA-256 `83D7FCA49A057E3B9E03C4AD9595CEEADADB827CEAEE49058C7425267E89AA67`. It was delivered locally to the owner; this commit does not publish a binary download.
+
+No Store submission, packaged-installation test, PWA-to-Flutter upgrade test or certification is claimed. Check old PWA data/launch behavior, retained packages for other architectures, actual app screenshots and the existing third-party distribution obligations before release. The Store product link does not mean that 2.0.3.0 is already available. Website upload/live verification remain pending. Microsoft signs Store-distributed MSIX packages; this unsigned upload file is not a direct-install package. The existing Setup and app binary are unchanged.
 
 ## What the app does
 
