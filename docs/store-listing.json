@@ -38,7 +38,7 @@
     "storeId": "9NVWJ7M80940",
     "packageFamilyName": "MohammadFarooq.FarooqChatViewer_k4xyx05gnhd8w"
   },
-  "packageFile": "FarooqChatViewer-Microsoft-Store-2.0.3.0-x64.msix",
-  "packageSha256": "83D7FCA49A057E3B9E03C4AD9595CEEADADB827CEAEE49058C7425267E89AA67",
-  "packageValidation": "Windows SDK package creation and independent payload/block hash validation passed; PWA upgrade testing and Store certification pending."
+  "packageFile": "FarooqChatViewer-Microsoft-Store-2.0.3.0-x64.msixbundle",
+  "packageSha256": "1E1FA568850FCD0E4B00BFCC41CBB6CE87FFD16AF19B1873DCEAE1DF9584A5A3",
+  "packageValidation": "Bundle built and locally validated; inner MSIX is unchanged. Owner reports Partner Center validated the inner package but requires a bundle. New bundle upload and certification pending."
 }
